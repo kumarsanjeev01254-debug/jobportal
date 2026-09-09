@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "https://jobportal-2-sly8.onrender.com",
+  origin: "http://localhost:5173",
   credentials: true,
 }
 

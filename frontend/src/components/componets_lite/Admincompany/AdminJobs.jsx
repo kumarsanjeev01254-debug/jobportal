@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 
 import { JOB_API_ENDPOINT } from "@/utilis/data";
-import { setAllAdminJobs } from "@/redux/jobSlice";
+import { setAllAdminJobs } from "@/redux/jobslice";
 
 import AdminJobsTable from "./AdminJobsTable";
 

@@ -47,7 +47,7 @@ export const {
   clearJobs,
   clearSingleJob,
   setAllAppliedJobs,
-} = jobslice.actions;
+} = jobSlice.actions;
 
 export default jobSlice.reducer;
 

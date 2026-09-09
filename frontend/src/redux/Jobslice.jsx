@@ -1,5 +1,5 @@
 
-import { createslice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   allJobs: [],
@@ -8,7 +8,7 @@ const initialState = {
   allAppliedJobs: [],
 };
 
-const jobslice = createSlice({
+const jobSlice = createSlice({
   name: "job",
 
   initialState,

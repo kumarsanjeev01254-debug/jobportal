@@ -13,10 +13,11 @@ dotenv.config();
 
 const app = express();
 
-// Connect Database
+// ================= DATABASE =================
 connectDB();
 
-// CORS
+// ================= CORS =================
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://jobportal-3-bguc.onrender.com",
@@ -25,8 +26,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests without origin
-      // Example: Postman, server-to-server
+      // Allow Postman/server-to-server requests
       if (!origin) {
         return callback(null, true);
       }
@@ -35,34 +35,52 @@ app.use(
         return callback(null, true);
       }
 
+      console.log("CORS BLOCKED ORIGIN:", origin);
+
       return callback(new Error("Not allowed by CORS"));
     },
+
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+
+    methods: [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE",
+      "PATCH",
+      "OPTIONS",
+    ],
+
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+    ],
   })
 );
 
-// Body parser
+// ================= MIDDLEWARE =================
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Cookie parser
 app.use(cookieParser());
 
-// Routes
+// ================= ROUTES =================
+
 app.use("/api/users", userRoutes);
 app.use("/api/company", companyRoutes);
 app.use("/api/job", jobRoutes);
 app.use("/api/applicant", applicantRoutes);
 
-// Test route
+// ================= TEST =================
+
 app.get("/", (req, res) => {
-  res.json({
+  res.status(200).json({
     success: true,
     message: "Job Portal Backend is running",
   });
 });
+
+// ================= SERVER =================
 
 const PORT = process.env.PORT || 5001;
 

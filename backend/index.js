@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
+   "http://localhost:5173",
   origin: "https://jobportal-3-bguc.onrender.com",
   credentials: true,
 }

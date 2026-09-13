@@ -26,7 +26,8 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow Postman/server-to-server requests
+      // Allow requests without an origin
+      // (Postman, server-to-server, etc.)
       if (!origin) {
         return callback(null, true);
       }
@@ -58,6 +59,9 @@ app.use(
   })
 );
 
+// Handle CORS preflight requests
+app.options("*", cors());
+
 // ================= MIDDLEWARE =================
 
 app.use(express.json());
@@ -71,7 +75,7 @@ app.use("/api/company", companyRoutes);
 app.use("/api/job", jobRoutes);
 app.use("/api/applicant", applicantRoutes);
 
-// ================= TEST =================
+// ================= TEST ROUTE =================
 
 app.get("/", (req, res) => {
   res.status(200).json({

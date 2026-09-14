@@ -8,7 +8,7 @@ const initialState = {
   allAppliedJobs: [],
 };
 
-const jobSlice = createSlice({
+const jobslice = createSlice({
   name: "job",
 
   initialState,
@@ -47,7 +47,7 @@ export const {
   clearJobs,
   clearSingleJob,
   setAllAppliedJobs,
-} = jobSlice.actions;
+} = Jobslice.actions;
 
-export default jobSlice.reducer;
+export default Jobslice.reducer;
 

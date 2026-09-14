@@ -8,7 +8,7 @@ const initialState = {
   allAppliedJobs: [],
 };
 
-const jobslice = createSlice({
+const Jobslice = createSlice({
   name: "job",
 
   initialState,

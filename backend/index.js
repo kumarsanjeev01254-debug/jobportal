@@ -21,7 +21,7 @@ connectDB();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://jobportal-1-5h6e.onrender.com",
-  "https://jobportal-3-bguc.onrender.com",
+  "https://jobportal-2-bguc.onrender.com",
 ];
 
 app.use(

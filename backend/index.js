@@ -20,13 +20,15 @@ connectDB();
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://jobportal-1-5h6e.onrender.com",
   "https://jobportal-3-bguc.onrender.com",
 ];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow Postman/server-to-server requests
+      // Allow requests without an Origin
+      // such as Postman/server-to-server requests
       if (!origin) {
         return callback(null, true);
       }
